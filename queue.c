@@ -17,10 +17,10 @@ void main()
         printf("1.INSERT\n");
         printf("2.DELETE\n");
         printf("3.DISPLAY\n");
-        printf("4.EXIT");
+        printf("4.EXIT\n\n");
 
         printf("choose option:--->");
-        scanf("%d",choice);
+        scanf("%d",&choice);
         
         switch(choice)
         {
@@ -48,7 +48,7 @@ void insert()
     else
     {
         printf("Enter your number:--->");
-        scanf("%d",queue[++rear]);
+        scanf("%d",&queue[++rear]);
     }
 }
 
@@ -69,7 +69,7 @@ void display()
     else
     {
         printf("Following are the elements in queue:--->");
-        for(int i=front; i<rear; i++)
+        for(int i=front; i<=rear; i++)
             printf("%d ",queue[i]);
     }
 }

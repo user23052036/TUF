@@ -61,7 +61,7 @@ void pop()
 
 int a_to_z(char ch)
 {
-    if((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch<= 'Z'))
+    if((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch<= 'Z') || (ch >= '0' && ch <= '9'))
         return 1;
     else
         return 0;

@@ -1,5 +1,6 @@
 #include<stdio.h>
-#define MAXSIZE 30
+#include<stdlib.h>
+#define MAXSIZE 5
 int c_queue[MAXSIZE],front=0,rear=-1;
 
 
@@ -36,6 +37,7 @@ void main()
             default:
                 printf("enter a valid choice:--->");
         }
+        system("clear");
     }while(choice != 4);
 }
 
@@ -48,12 +50,13 @@ void insert()
         printf("Enter your number:--->");
         rear = (rear+1)%MAXSIZE;
         scanf("%d",&c_queue[rear]);
+        display();
     }
 }
 
 void delete1()
 {
-    if(rear = -1)
+    if(rear == -1)
         printf("circular queue empty\n");
     else
     {
@@ -67,20 +70,22 @@ void delete1()
         else
             front = (front+1)%MAXSIZE;
     }
+    display();
 }
 
 void display()
 {
-    if(rear = -1)
-        printf("circular queue empty");
+    if(rear == -1)
+        printf("\ncircular queue empty");
     else
     {
-        printf("Following are the elements in circular queue:---> ");
-        for(int i=front; i!=rear; i=(i+1)%MAXSIZE)
-        {
-            printf("%d ",c_queue[front]);
-        }
-        printf("%d ",c_queue[front]);
+        int i;
+        printf("\nFollowing are the elements in circular queue:---> ");
+        for(i=front; i!=rear; i=(i+1)%MAXSIZE)
+            printf("%d ",c_queue[i]);
+        printf("%d ",c_queue[i]);
     }
     printf("\n");
+    printf("Enter y to continue:--->");
+    while(getchar() != 'y'){};
 }

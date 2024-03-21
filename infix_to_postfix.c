@@ -28,9 +28,12 @@ int main()
             while(stack[top] != '(')
                 pop();
 
-        else if(priority(stack[top]) >= priority(str[i]))
-            pop();
-        push(str[i]);
+        else
+        {
+            while(priority(stack[top]) >= priority(str[i]))
+                pop();
+            push(str[i]);
+        }
     }
     return 0;
 }

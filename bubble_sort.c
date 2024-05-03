@@ -22,7 +22,7 @@ int main()
 }
 
 
-void bubble_sort(int *ptr, int n)              // bubble sort
+void bubble_sort(int *ptr, int n)              // bubble sort ascending order
 {
     for(int round=1; round<n; round++)
         for(int i=0; i<n-round; i++)

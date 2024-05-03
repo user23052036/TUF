@@ -57,7 +57,7 @@ void insert()
 void delete1()
 {
     if(rear == -1)
-        printf("circular queue empty\n");
+        printf("CIRCULAR QUEUE IS EMPTY\n");
     else
     {
         printf("%d is removed\n",c_queue[front]);
@@ -76,7 +76,7 @@ void delete1()
 void display()
 {
     if(rear == -1)
-        printf("\ncircular queue empty");
+        printf("\nCIRCULAR QUEUE IS EMPTY");
     else
     {
         int i;

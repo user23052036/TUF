@@ -1,5 +1,5 @@
 #include<stdio.h>
-#define MAXSIZE 30
+#define MAXSIZE 5
 int c_queue[MAXSIZE],front=0,rear=-1;
 
 
@@ -53,7 +53,7 @@ void insert()
 
 void delete1()
 {
-    if(rear = -1)
+    if(rear == -1)
         printf("circular queue empty\n");
     else
     {
@@ -71,16 +71,15 @@ void delete1()
 
 void display()
 {
-    if(rear = -1)
+    if(rear == -1)
         printf("circular queue empty");
     else
     {
+        int i;
         printf("Following are the elements in circular queue:---> ");
-        for(int i=front; i!=rear; i=(i+1)%MAXSIZE)
-        {
-            printf("%d ",c_queue[front]);
-        }
-        printf("%d ",c_queue[front]);
+        for(i=front; i!=rear; i=(i+1)%MAXSIZE)
+            printf("%d ",c_queue[i]);
+        printf("%d ",c_queue[i]);
     }
     printf("\n");
 }

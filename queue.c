@@ -2,7 +2,7 @@
 #include<stdlib.h>
 #define MAXSIZE 30
 int queue[MAXSIZE];
-int front=0,rear=-1;
+int front=-1,rear=-1;
 
 
 void display();
@@ -54,7 +54,7 @@ void insert()
 
 void delete1()
 {
-    if(front > rear)
+    if(front==rear)
         printf("Empty queue\n");
     else
     {

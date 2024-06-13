@@ -20,7 +20,10 @@ int main()
     selection_sort(arr,limit);
     
     index = binary_search(arr,find_num,0,limit);
-    printf("Found the element %d in the array\n",arr[index]);
+    if(index != -1)
+        printf("Found the element\n");
+    else
+        printf("Didn't find the element\n");
     free(arr);
     return 0;
 }
@@ -35,9 +38,9 @@ int binary_search(int *arr, int find_num, int l, int r) //using recursion
         return(-1);
 
     if(find_num > mid)
-        binary_search(arr,find_num,mid+1,r);
+        return binary_search(arr,find_num,mid+1,r);
     else
-        binary_search(arr,find_num,l,mid-1);
+        return binary_search(arr,find_num,l,mid-1);
 }
 
 void selection_sort(int *arr, int limit)

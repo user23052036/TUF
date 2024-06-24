@@ -46,9 +46,3 @@ If you have an idea to enhance the project, we would love to hear about it. Plea
 - Follow the existing code style.
 - Write clear, concise commit messages.
 - Ensure your code passes existing tests and add new tests for your changes.
-
-### Running Tests
-
-To run the tests locally, use the following commands:
-```sh
-# Commands to run the tests

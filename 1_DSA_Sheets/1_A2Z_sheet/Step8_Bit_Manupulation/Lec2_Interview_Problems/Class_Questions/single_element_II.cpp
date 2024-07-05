@@ -44,6 +44,17 @@ int solution_2(int *arr, int size)
     return arr[size-1];
 }
 
+int solution_3(int *arr, int size)     //most efficient concept of buckets
+{
+    int ones=0,twice=0;
+    for(int i=0; i<size; i++)
+    {
+        ones = (ones^arr[i]) & (~twice);
+        twice = (twice^arr[i]) & (~ones);
+    }
+    return ones;
+}
+
 
 int main()
 {
@@ -51,5 +62,6 @@ int main()
 
     cout<<solution_1(arr,7)<<"\n";
     cout<<solution_2(arr,7)<<"\n";
+    cout<<solution_3(arr,7)<<"\n";
     return 0;
 }

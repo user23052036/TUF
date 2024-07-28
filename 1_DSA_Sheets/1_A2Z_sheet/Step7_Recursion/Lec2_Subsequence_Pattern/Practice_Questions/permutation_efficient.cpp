@@ -21,7 +21,7 @@ class Solution
             for(int i=indx; i<nums.size(); i++)
             {
                 swap(nums,indx,i);
-                permutation(i+1,nums,ans);
+                permutation(indx+1,nums,ans);
                 swap(nums,indx,i);
             }
         }

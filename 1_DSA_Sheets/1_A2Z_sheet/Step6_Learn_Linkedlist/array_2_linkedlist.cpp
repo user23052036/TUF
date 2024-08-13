@@ -68,11 +68,18 @@ bool search_LL(Node *head, int k)
 
 Node* delete_head_LL(Node *head)
 {
-    Node *temp = head;
-    temp = temp->next;
+    if(head == NULL) return head;
 
-    delete(head);
-    return temp;
+    Node *temp = head;
+    head = head->next;
+
+    delete(temp);
+    return head;
+}
+
+Node* insert_head_LL(Node *head, int val)
+{
+    return (new Node(val,head));
 }
 
 Node* delete_tail_LL(Node *head)
@@ -93,26 +100,82 @@ Node* delete_tail_LL(Node *head)
     return head;
 }
 
+Node* insert_tail_LL(Node *head, int val)
+{
+    if(head == NULL) return (new Node(val));
+
+    Node *temp=head;
+    while(temp->next != NULL)
+        temp = temp->next;
+    
+    temp->next = new Node(val);
+    return head;
+}
+
 Node* delete_LL(Node *head, int k)  // k is which element to delete 1-based indexing
 {
-    if(k==1) delete_head_LL(head);
-    else if(k == count_LL(head)) delete_tail_LL(head);
+    if(k==1) return delete_head_LL(head);
+    else if(k == count_LL(head)) return delete_tail_LL(head);
     else if(k>count_LL(head)) return head;
-    else
+
+    Node *temp = head;
+    k--;
+    while(--k)
+        temp = temp->next;
+
+    Node *delete_node = temp->next;
+    temp->next = temp->next->next;
+    delete(delete_node);
+    return head;
+}
+
+Node* insert_LL(Node *head, int val, int pos)
+{
+    if(pos == 1) 
     {
-        Node *temp = head;
-        k--;
-        while(--k)
-            temp = temp->next;
-        temp->next = temp->next->next;
-        delete(temp->next);
+        if(head==NULL)
+            return (new Node(val));
+        return (new Node(val,head));
     }
+
+    int size = count_LL(head);
+    if(pos <= size+1)
+    {
+        if(pos==size+1) return insert_tail_LL(head,val);
+
+        int cnt=2;
+        Node *temp=head;
+        while(pos != cnt)
+        {
+            temp = temp->next;
+            cnt++;
+        }
+        temp->next = new Node(val,temp->next);
+    }
+    return head;
+}
+
+Node* delete_LL_val(Node *head, int val)  // k is which element to delete 1-based indexing
+{
+    if(head == NULL) return head;
+    if(head->data == val) return delete_head_LL(head);
+    
+    Node *temp = head;
+    while(temp->next != NULL && temp->next->data != val)
+        temp = temp->next;
+
+    Node *delete_node = temp->next;
+    temp->next = temp->next->next;
+    delete(delete_node);
     return head;
 }
 
 int main()
 {
     vector<int>arr{1,7,5,6,3,9};
-    Node *head = array_2_LL(arr);                   
+    Node *head = array_2_LL(arr); 
+
+    head = insert_LL(head,43,3);
+    print_LL(head);                  
     return 0;
 }
